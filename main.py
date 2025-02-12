@@ -1,8 +1,11 @@
-from summator import make_sum
-# при импорте выполняется весь код импортируемого модуля
-# у запускаемого файла есть атрибут __name__
-# там будет лежать название файла, если его импортируют
-# и слово __main__, если его запускают самостоятельно
+import requests
+
+from config import TOKEN
 
 
-print('Hello, world!')
+base_url = f'https://api.telegram.org/bot{TOKEN}/'
+command = 'getMe'
+
+response = requests.get(base_url + command)
+
+print(response.json())
