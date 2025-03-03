@@ -25,7 +25,7 @@ async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """функция, которая реагирует эхом на любое сообщение"""
     user = update.effective_user
     message = update.message
-    log.info(f'Функция echo вызвана пользователем {user}')
+    log.info(f'Функция echo вызвана пользователем {user}\n' + ' ' * 73 + f'{message = }')
     await update.message.reply_text(f'{update.message.text}')
 
 
