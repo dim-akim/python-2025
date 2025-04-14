@@ -5,6 +5,7 @@ from telegram.constants import ParseMode
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler, CallbackQueryHandler, filters
 
 from config import TOKEN
+from events import events_application_handler
 
 
 logging.basicConfig(
@@ -99,6 +100,7 @@ app.add_handler(CommandHandler("hello", hello))
 app.add_handler(CommandHandler(["help", "start"], say_help))
 app.add_handler(CommandHandler("keyboard", say_keyboard))
 app.add_handler(CallbackQueryHandler(react_keyboard))
+app.add_handler(events_application_handler)
 app.add_handler(MessageHandler(filters.ALL, echo))
 
 app.run_polling()
