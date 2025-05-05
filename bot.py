@@ -96,11 +96,11 @@ async def react_keyboard(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 app = ApplicationBuilder().token(TOKEN).build()
 
 # регистрация обработчиков
+app.add_handler(events_application_handler)
 app.add_handler(CommandHandler("hello", hello))
 app.add_handler(CommandHandler(["help", "start"], say_help))
 app.add_handler(CommandHandler("keyboard", say_keyboard))
 app.add_handler(CallbackQueryHandler(react_keyboard))
-app.add_handler(events_application_handler)
 app.add_handler(MessageHandler(filters.ALL, echo))
 
 app.run_polling()
